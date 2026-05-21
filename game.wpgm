@@ -1,0 +1,35 @@
+import wollok.game.*
+import arania.*
+import enemigos.*
+import niveles.*
+import ui.*
+
+program gameArachnida {
+	game.title("Arachnida")
+	game.cellSize(100)
+	game.height(7)
+	game.width(15)
+	game.boardGround("FondoGame.png")
+	
+	game.addVisual(escena.escenaActual())
+	keyboard.p().onPressDo({pantallaInicio.comenzarElJuego()})	
+	keyboard.p().onPressDo({game.addVisual(interfazTelaranias)})
+	keyboard.p().onPressDo({game.addVisual(escena.escenaActual().dificultad())})
+	keyboard.p().onPressDo({game.addVisual(controles)})	
+	
+	game.schedule(10000, {game.removeVisual(controles)})
+	keyboard.p().onPressDo({game.removeVisual(bestiario)})
+
+	keyboard.b().onPressDo({bestiario.mostrarBestiario()})
+
+	keyboard.p().onPressDo({game.addVisual(arachnida)})
+	keyboard.p().onPressDo({escena.escenaActual().generarEnemigoConJuegoEnCurso()})
+
+	keyboard.a().onPressDo({arachnida.moverIzquierda()})
+	keyboard.d().onPressDo({arachnida.moverDerecha()})
+	keyboard.space().onPressDo({arachnida.atacarSiElJuegoInicio(new Telarania())})
+
+	keyboard.r().onPressDo({escena.reiniciar()})
+
+	game.start()
+}
