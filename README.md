@@ -38,4 +38,3 @@ En el juego, vas a tener que dispararle y matar a los enemigos que vayan apareci
 - UNAHUR - Universidad Nacional de Hurlingham
 - Wollok-LSP-IDE v0.5.3
 - Node.js v22.21.1 (LTS)
-- Una vez terminado, no tenemos problemas en que el repositorio sea público.
